@@ -1,0 +1,700 @@
+[
+    {
+        "id": "8b664f74.468b7",
+        "type": "tab",
+        "label": "World Map",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f32cf760.c00ab8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Properties",
+        "tab": "6ac5370a.e10b98",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b7f35b6d.b5d488",
+        "type": "ui_group",
+        "z": "",
+        "name": "World Map",
+        "tab": "6ac5370a.e10b98",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": false
+    },
+    {
+        "id": "6ac5370a.e10b98",
+        "type": "ui_tab",
+        "z": "",
+        "name": "World Map",
+        "icon": "dashboard",
+        "order": 7,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "4a412150.1f17d",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6d813c9.d314dc4",
+        "type": "switch",
+        "z": "8b664f74.468b7",
+        "name": "zoom >= 14",
+        "property": "payload.zoom",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "14",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 650,
+        "y": 180,
+        "wires": [
+            [
+                "5f683ac6.2ea464"
+            ],
+            [
+                "ce1b1d7e.83445"
+            ]
+        ]
+    },
+    {
+        "id": "fd1f86fd.92d458",
+        "type": "comment",
+        "z": "8b664f74.468b7",
+        "name": "Worldmap Example",
+        "info": "",
+        "x": 110,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3aeda4dc.46125c",
+        "type": "ui_text",
+        "z": "8b664f74.468b7",
+        "group": "f32cf760.c00ab8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "zoom",
+        "label": "Zoom: ",
+        "format": "{{msg.payload.zoom}}",
+        "layout": "row-left",
+        "x": 390,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c6740685.ccb558",
+        "type": "worldmap in",
+        "z": "8b664f74.468b7",
+        "name": "connect",
+        "path": "/worldmap",
+        "events": "connect",
+        "x": 70,
+        "y": 280,
+        "wires": [
+            [
+                "f76768b4.6b74b8"
+            ]
+        ]
+    },
+    {
+        "id": "f76768b4.6b74b8",
+        "type": "change",
+        "z": "8b664f74.468b7",
+        "name": "zoom reset",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"zoom\":\"\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 260,
+        "wires": [
+            [
+                "3aeda4dc.46125c"
+            ]
+        ]
+    },
+    {
+        "id": "ef616ec3.36561",
+        "type": "change",
+        "z": "8b664f74.468b7",
+        "name": "",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1975,
+        "y": 320,
+        "wires": [
+            [
+                "e9c06a93.b8b618"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "683573dd.40b95c",
+        "type": "worldmap in",
+        "z": "8b664f74.468b7",
+        "name": "worldmap boundary",
+        "path": "/worldmap",
+        "events": "bounds",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "3aeda4dc.46125c",
+                "424111f.12c13f"
+            ]
+        ]
+    },
+    {
+        "id": "4cd57797.b57cf8",
+        "type": "change",
+        "z": "8b664f74.468b7",
+        "name": "set center",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.center",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.center.lat",
+                "pt": "msg",
+                "to": "$average([payload.north, payload.south])\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.center.lon",
+                "pt": "msg",
+                "to": "$average([payload.east, payload.west])\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.buffer",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.buffer.lat",
+                "pt": "msg",
+                "to": "(payload.north - payload.south) / 2",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.buffer.lon",
+                "pt": "msg",
+                "to": "(payload.east - payload.west) / 2",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "6d813c9.d314dc4"
+            ]
+        ]
+    },
+    {
+        "id": "424111f.12c13f",
+        "type": "trigger",
+        "z": "8b664f74.468b7",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "payl",
+        "duration": "100",
+        "extend": true,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "4cd57797.b57cf8"
+            ]
+        ]
+    },
+    {
+        "id": "8b9f3f26.3ba45",
+        "type": "function",
+        "z": "8b664f74.468b7",
+        "name": "h3.polygonToCells",
+        "func": "let h3         = global.get(\"h3\");\nvar resolution = msg.payload.resolution;\nvar polygon    = msg.payload.polygon\nvar strings    = h3.polygonToCells(polygon, resolution);\nmsg.payload    = []; //isa [{string:str, boundry:[[lat,lon], ...]}, ...]\n\nstrings.forEach((string) => {\n  var boundry = h3.cellToBoundary(string); //isa [[], [], ...]\n  boundry.push(boundry[0]); // OGC closed linear ring\n  var cell    = {\n                 \"string\":     string, \n                 \"resolution\": resolution,\n                 \"boundry\":    boundry,\n                };\n  msg.payload.push(cell);\n});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1110,
+        "y": 260,
+        "wires": [
+            [
+                "bcff87f3.3a0f28"
+            ]
+        ]
+    },
+    {
+        "id": "ce1b1d7e.83445",
+        "type": "change",
+        "z": "8b664f74.468b7",
+        "name": "clear hex",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"command\":{\"clear\":\"hex\"}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 880,
+        "y": 320,
+        "wires": [
+            [
+                "36bf94ef.389cbc"
+            ]
+        ]
+    },
+    {
+        "id": "bcff87f3.3a0f28",
+        "type": "split",
+        "z": "8b664f74.468b7",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1270,
+        "y": 260,
+        "wires": [
+            [
+                "1ee020d2.4a5daf",
+                "3edec85d.c6b158"
+            ]
+        ]
+    },
+    {
+        "id": "aca38fbc.e1b54",
+        "type": "change",
+        "z": "8b664f74.468b7",
+        "name": "format",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.layer",
+                "pt": "msg",
+                "to": "hex",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.name",
+                "pt": "msg",
+                "to": "cell.string",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.line",
+                "pt": "msg",
+                "to": "cell.boundry",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1870,
+        "y": 260,
+        "wires": [
+            [
+                "cfc7b34c.508b5"
+            ]
+        ]
+    },
+    {
+        "id": "3edec85d.c6b158",
+        "type": "function",
+        "z": "8b664f74.468b7",
+        "name": "h3.cellToChildren",
+        "func": "let h3         = global.get(\"h3\");\nvar cell       = msg.payload;\nvar resolution = cell.resolution + 1; //TODO: allow override\n//node.warn(cell.string);\n//node.warn(resolution);\n\nvar strings    = h3.cellToChildren(cell.string, resolution);\n//node.warn(strings);\n\nmsg.payload    = []; //isa [{string:str, boundry:[[lat,lon], ...]}, ...]\n\nstrings.forEach((string) => {\n  var boundry = h3.cellToBoundary(string); //isa [[], [], ...]\n  boundry.push(boundry[0]); // OGC closed linear ring\n  var cell    = {\n                 \"string\":     string, \n                 \"resolution\": resolution,\n                 \"boundry\":    boundry,\n                };\n  msg.payload.push(cell);\n});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1450,
+        "y": 300,
+        "wires": [
+            [
+                "551b878f.77f728"
+            ]
+        ]
+    },
+    {
+        "id": "551b878f.77f728",
+        "type": "split",
+        "z": "8b664f74.468b7",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1610,
+        "y": 300,
+        "wires": [
+            [
+                "234f0291.f1a25e"
+            ]
+        ]
+    },
+    {
+        "id": "234f0291.f1a25e",
+        "type": "change",
+        "z": "8b664f74.468b7",
+        "name": "color",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cell",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.weight",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.color",
+                "pt": "msg",
+                "to": "#6495ED",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1730,
+        "y": 300,
+        "wires": [
+            [
+                "aca38fbc.e1b54"
+            ]
+        ]
+    },
+    {
+        "id": "1ee020d2.4a5daf",
+        "type": "change",
+        "z": "8b664f74.468b7",
+        "name": "color",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cell",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.weight",
+                "pt": "msg",
+                "to": "2",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.color",
+                "pt": "msg",
+                "to": "#0000CD",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1730,
+        "y": 260,
+        "wires": [
+            [
+                "aca38fbc.e1b54"
+            ]
+        ]
+    },
+    {
+        "id": "5f683ac6.2ea464",
+        "type": "change",
+        "z": "8b664f74.468b7",
+        "name": "polygon/resolution",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.polygon",
+                "pt": "msg",
+                "to": "[\t  [payload.south - payload.buffer.lat, payload.west - payload.buffer.lon],\t  [payload.north + payload.buffer.lat, payload.west - payload.buffer.lon],\t  [payload.north + payload.buffer.lat, payload.east + payload.buffer.lon],\t  [payload.south - payload.buffer.lat, payload.east + payload.buffer.lon],\t  [payload.south - payload.buffer.lat, payload.west - payload.buffer.lon]\t]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.resolution",
+                "pt": "msg",
+                "to": "8",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 260,
+        "wires": [
+            [
+                "8b9f3f26.3ba45"
+            ]
+        ]
+    },
+    {
+        "id": "36bf94ef.389cbc",
+        "type": "change",
+        "z": "8b664f74.468b7",
+        "name": "",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1235,
+        "y": 320,
+        "wires": [
+            [
+                "ef616ec3.36561"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "cfc7b34c.508b5",
+        "type": "change",
+        "z": "8b664f74.468b7",
+        "name": "",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1975,
+        "y": 220,
+        "wires": [
+            [
+                "e9c06a93.b8b618"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e9c06a93.b8b618",
+        "type": "ui_worldmap",
+        "z": "8b664f74.468b7",
+        "group": "b7f35b6d.b5d488",
+        "order": 1,
+        "width": "20",
+        "height": "10",
+        "name": "",
+        "lat": "38.2",
+        "lon": "-97.2",
+        "zoom": "4.5",
+        "layer": "",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "hide",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "deg",
+        "showgrid": "false",
+        "showruler": "true",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 2120,
+        "y": 180,
+        "wires": []
+    }
+]
