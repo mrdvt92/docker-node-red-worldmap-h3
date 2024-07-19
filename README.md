@@ -1,7 +1,7 @@
 # docker-node-red-worldmap-h3
 Docker Example with [Node-Red UI](https://github.com/node-red/node-red-dashboard) and [WorldMap](https://github.com/dceejay/RedMap) with an [Uber H3](https://github.com/uber/h3) layer
 
-![Worldmap with hex 8 and 9 layers](ui.png?raw=true)
+![Worldmap with hex 8 and 9 layers](ui.png?raw=true "Worldmap with hex 8 and 9 layers")
 
 ## Build
 
