@@ -153,8 +153,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 650,
-        "y": 180,
+        "x": 730,
+        "y": 100,
         "wires": [
             [
                 "5f683ac6.2ea464"
@@ -187,7 +187,7 @@
         "format": "{{msg.payload.zoom}}",
         "layout": "row-left",
         "x": 390,
-        "y": 240,
+        "y": 160,
         "wires": []
     },
     {
@@ -198,7 +198,7 @@
         "path": "/worldmap",
         "events": "connect",
         "x": 70,
-        "y": 280,
+        "y": 160,
         "wires": [
             [
                 "f76768b4.6b74b8"
@@ -224,8 +224,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 230,
-        "y": 260,
+        "x": 210,
+        "y": 160,
         "wires": [
             [
                 "3aeda4dc.46125c"
@@ -243,8 +243,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1975,
-        "y": 320,
+        "x": 1955,
+        "y": 120,
         "wires": [
             [
                 "e9c06a93.b8b618"
@@ -260,7 +260,7 @@
         "path": "/worldmap",
         "events": "bounds",
         "x": 110,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
                 "3aeda4dc.46125c",
@@ -322,8 +322,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 500,
-        "y": 180,
+        "x": 580,
+        "y": 100,
         "wires": [
             [
                 "6d813c9.d314dc4"
@@ -344,8 +344,8 @@
         "reset": "",
         "bytopic": "all",
         "name": "",
-        "x": 340,
-        "y": 180,
+        "x": 420,
+        "y": 100,
         "wires": [
             [
                 "4cd57797.b57cf8"
@@ -360,8 +360,8 @@
         "func": "let h3         = global.get(\"h3\");\nvar resolution = msg.payload.resolution;\nvar polygon    = msg.payload.polygon\nvar strings    = h3.polygonToCells(polygon, resolution);\nmsg.payload    = []; //isa [{string:str, boundry:[[lat,lon], ...]}, ...]\n\nstrings.forEach((string) => {\n  var boundry = h3.cellToBoundary(string); //isa [[], [], ...]\n  boundry.push(boundry[0]); // OGC closed linear ring\n  var cell    = {\n                 \"string\":     string, \n                 \"resolution\": resolution,\n                 \"boundry\":    boundry,\n                };\n  msg.payload.push(cell);\n});\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1110,
-        "y": 260,
+        "x": 1150,
+        "y": 80,
         "wires": [
             [
                 "bcff87f3.3a0f28"
@@ -387,11 +387,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 880,
-        "y": 320,
+        "x": 920,
+        "y": 120,
         "wires": [
             [
-                "36bf94ef.389cbc"
+                "ef616ec3.36561"
             ]
         ]
     },
@@ -406,12 +406,12 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 1270,
-        "y": 260,
+        "x": 1310,
+        "y": 80,
         "wires": [
             [
-                "1ee020d2.4a5daf",
-                "3edec85d.c6b158"
+                "3edec85d.c6b158",
+                "23340c08.657104"
             ]
         ]
     },
@@ -448,11 +448,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1870,
-        "y": 260,
+        "x": 1930,
+        "y": 80,
         "wires": [
             [
-                "cfc7b34c.508b5"
+                "e9c06a93.b8b618"
             ]
         ]
     },
@@ -464,8 +464,8 @@
         "func": "let h3         = global.get(\"h3\");\nvar cell       = msg.payload;\nvar resolution = cell.resolution + 1; //TODO: allow override\n//node.warn(cell.string);\n//node.warn(resolution);\n\nvar strings    = h3.cellToChildren(cell.string, resolution);\n//node.warn(strings);\n\nmsg.payload    = []; //isa [{string:str, boundry:[[lat,lon], ...]}, ...]\n\nstrings.forEach((string) => {\n  var boundry = h3.cellToBoundary(string); //isa [[], [], ...]\n  boundry.push(boundry[0]); // OGC closed linear ring\n  var cell    = {\n                 \"string\":     string, \n                 \"resolution\": resolution,\n                 \"boundry\":    boundry,\n                };\n  msg.payload.push(cell);\n});\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1450,
-        "y": 300,
+        "x": 1490,
+        "y": 100,
         "wires": [
             [
                 "551b878f.77f728"
@@ -483,8 +483,8 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 1610,
-        "y": 300,
+        "x": 1670,
+        "y": 100,
         "wires": [
             [
                 "234f0291.f1a25e"
@@ -531,8 +531,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1730,
-        "y": 300,
+        "x": 1790,
+        "y": 100,
         "wires": [
             [
                 "aca38fbc.e1b54"
@@ -579,8 +579,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1730,
-        "y": 260,
+        "x": 1790,
+        "y": 60,
         "wires": [
             [
                 "aca38fbc.e1b54"
@@ -613,53 +613,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 910,
-        "y": 260,
+        "x": 950,
+        "y": 80,
         "wires": [
             [
                 "8b9f3f26.3ba45"
             ]
         ]
-    },
-    {
-        "id": "36bf94ef.389cbc",
-        "type": "change",
-        "z": "8b664f74.468b7",
-        "name": "",
-        "rules": [],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1235,
-        "y": 320,
-        "wires": [
-            [
-                "ef616ec3.36561"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "cfc7b34c.508b5",
-        "type": "change",
-        "z": "8b664f74.468b7",
-        "name": "",
-        "rules": [],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1975,
-        "y": 220,
-        "wires": [
-            [
-                "e9c06a93.b8b618"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "e9c06a93.b8b618",
@@ -693,8 +653,28 @@
         "mapurl": "",
         "mapopt": "",
         "mapwms": false,
-        "x": 2120,
-        "y": 180,
+        "x": 2080,
+        "y": 80,
         "wires": []
+    },
+    {
+        "id": "23340c08.657104",
+        "type": "change",
+        "z": "8b664f74.468b7",
+        "name": "",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1415,
+        "y": 60,
+        "wires": [
+            [
+                "1ee020d2.4a5daf"
+            ]
+        ],
+        "l": false
     }
 ]
